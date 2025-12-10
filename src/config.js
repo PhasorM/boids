@@ -1,5 +1,5 @@
 const CONFIG = {
-  boidCount: 130,
+  boidCount: 150,
   maxSpeed: 3,
   maxForce: 0.07,
   visualRange: 60,
@@ -8,6 +8,6 @@ const CONFIG = {
   alignmentWeight: 1.0,
   separationWeight: 1.9,
 
-  trailLength: 20,
+  trailLength: 10,
   trailEnabled: true,
 };

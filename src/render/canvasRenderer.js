@@ -16,7 +16,7 @@ class CanvasRenderer {
 
       for (let i = 1; i < boid.trail.length; i++) {
         const alpha = i / boid.trail.length;
-        ctx.globalAlpha = alpha * 0.5;
+        ctx.globalAlpha = Math.random();
         ctx.beginPath();
         ctx.moveTo(boid.trail[i - 1].x, boid.trail[i - 1].y);
         ctx.lineTo(boid.trail[i].x, boid.trail[i].y);
@@ -31,7 +31,7 @@ class CanvasRenderer {
 
     ctx.fillStyle = boid.color;
     ctx.beginPath();
-    ctx.arc(boid.position.x, boid.position.y, 6, 0, Math.PI * 2);
+    ctx.arc(boid.position.x, boid.position.y, 4, 0, Math.PI * 2);
     ctx.fill();
   }
 

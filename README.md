@@ -2,9 +2,11 @@
 
 <a href="https://winter-of-open-source.vercel.app/"><img src="media/banner.png" alt="Winter of Open Source"></a>
 
-[![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-yellow.svg)](https://www.javascript.com/)
+[![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-pink.svg)](https://www.javascript.com/) [![Winter of Open Source](https://img.shields.io/badge/Winter%20of%20Open%20Source-2025-blue)](https://winter-of-open-source.vercel.app/)
 
 **Boids** is an interactive browser-based flocking simulation that demonstrates emergent behavior from simple rules. Watch as individual agents (boids) interact with their neighbors using separation, alignment, and cohesion rules to create realistic, organic group movement patterns.
+
+[**Check it out!**](https://datavorous.github.io/boids/)
 
 This project is part of **[Winter of Open Source](https://winter-of-open-source.vercel.app/)**, where contributors can improve simulations, add new features, optimize performance, and enhance the overall project.
 
@@ -38,11 +40,13 @@ cd boids
 2. Open `index.html` in your web browser (or use a local server):
 
 ```bash
-# Option 1: Python 3
+# option 1: python 3
 python3 -m http.server 8000
 
-# Option 2: Node.js (if installed)
+# option 2: node.js
 npx http-server
+
+# option 3: JUST OPEN THE index.html IN YOUR BROWSER!
 ```
 
 3. Navigate to `http://localhost:8000` in your browser
@@ -53,47 +57,43 @@ Edit `src/config.js` to customize the simulation:
 
 ```javascript
 const CONFIG = {
-  boidCount: 130, // Number of boids in the simulation
-  maxSpeed: 3, // Maximum velocity magnitude
-  maxForce: 0.07, // Maximum steering force
-  visualRange: 60, // Distance at which boids see each other
+  boidCount: 130,
+  maxSpeed: 3,
+  maxForce: 0.07,
+  visualRange: 60,
 
-  cohesionWeight: 1.0, // Influence of cohesion behavior
-  alignmentWeight: 1.0, // Influence of alignment behavior
-  separationWeight: 1.9, // Influence of separation behavior
+  cohesionWeight: 1.0,
+  alignmentWeight: 1.0,
+  separationWeight: 1.9,
 
-  trailLength: 20, // Length of motion trails
-  trailEnabled: true, // Enable/disable trails
+  trailLength: 20,
+  trailEnabled: true,
 };
 ```
-
-## Welcome to Winter of Open Source! 🎉
-
-We're excited to have you contribute to the Boids simulation! Whether you're fixing bugs, adding features, or optimizing performance, your contributions help make this project better.
-
-### Getting Help
-
-- **Discord**: [Server link]()
-- **GitHub Discussions**: Ask questions and discuss ideas
-- **Comment on issues**: Reach out to maintainers directly
-
-### Important Rules
-
-- Work on **one issue at a time**
-- Complete assigned issues within a reasonable timeframe (can be extended based on difficulty)
-- Respect the [Code of Conduct](CODE_OF_CONDUCT.md)
-- Always link your PR to an issue
-- Avoid plagiarism or AI-generated content without proper attribution
 
 ## How to Contribute
 
 Please follow [CONTRIBUTING.md](CONTRIBUTING.md) for step-by-step guidance on:
 
-- Setting up your development environment
-- Understanding the codebase structure
-- Making improvements and submitting PRs
-- Code style and best practices
-- Testing your changes
+1. Setting up your development environment
+2. Understanding the codebase structure
+3. Making improvements and submitting PRs
+4. Code style and best practices
+5. Testing your changes
+
+### Getting Help
+
+1. **Discord**: [Server link]()
+2. **GitHub Discussions**: Ask questions and discuss ideas
+3. **Comment on issues**: Reach out to maintainers directly
+
+### Important Rules
+
+1. Work on **one issue at a time**
+2. Complete assigned issues within a reasonable timeframe (can be extended based on difficulty)
+3. Respect the [Code of Conduct](CODE_OF_CONDUCT.md)
+4. Always link your PR to an issue
+5. Avoid plagiarism or AI-generated content without proper attribution
 
 ## Code of Conduct
 
@@ -101,6 +101,6 @@ Please follow [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) to ensure a welcoming and
 
 ## References
 
-- [Boids Algorithm (Wikipedia)](https://en.wikipedia.org/wiki/Boids)
-- [Steering Behaviors for Autonomous Characters](https://www.red3d.com/cwr/boids/)
-- [Craig Reynolds' Original Paper](https://www.red3d.com/cwr/papers/1987/boids.html)
+1. [Boids Algorithm (Wikipedia)](https://en.wikipedia.org/wiki/Boids)
+2. [Steering Behaviors for Autonomous Characters](https://www.red3d.com/cwr/boids/)
+3. [Craig Reynolds' Original Paper](https://www.red3d.com/cwr/papers/1987/boids.html)

@@ -30,10 +30,8 @@ cd boids
 Choose one:
 
 ```bash
-# Python 3
 python3 -m http.server 8000
 
-# Node.js
 npx http-server
 ```
 
@@ -53,16 +51,16 @@ This should display the interactive Boids simulation.
 
 Browse the [open issues](../../issues) and look for labels:
 
-- `good first issue` – beginner friendly
-- `easy`, `medium`, `hard` – task difficulty
-- `documentation`, `bug`, `feature`, `enhancement`
+1. `good first issue` – beginner friendly
+2. `easy`, `medium`, `hard` – task difficulty
+3. `documentation`, `bug`, `feature`, `enhancement`
 
 ### Step 2: Assign Yourself
 
-- Comment `/assign` on the issue
-- Wait for maintainer approval
-- Complete the issue within **48 hours**
-- Work on **only one issue at a time**
+1. Comment `/assign` on the issue
+2. Wait for maintainer approval
+3. Complete the issue within **48 hours**
+4. Work on **only one issue at a time**
 
 ### Step 3: Create a Branch
 
@@ -87,10 +85,7 @@ Example branch names:
 
 ```bash
 git add .
-git commit -m "Clear commit message
-
-- Description of changes
-- Link to issue: Fixes #23"
+git commit -m "Clear commit message"
 ```
 
 ### Step 6: Push & Create PR
@@ -101,42 +96,11 @@ git push origin fix/issue-number-short-description
 
 Then:
 
-- Open a PR via “Compare & pull request”
-- Link the issue using `Fixes #<issue-number>`
-- Describe your changes clearly
-- Add screenshots/behavior GIFs when relevant
-- Fill out all checklist items
-
-## Project Structure
-
-```
-boids/
-├── index.html
-├── src/
-│   ├── config.js
-│   ├── main.js
-│   ├── core/
-│   │   ├── boid.js
-│   │   ├── flock.js
-│   │   └── simulation.js
-│   ├── render/
-│   │   ├── canvasRenderer.js
-│   │   └── vectorRenderer.js
-│   ├── ui/
-│   │   └── controls.js
-│   └── utils/
-│       └── vector.js
-└── README.md
-```
-
-Important modules:
-
-- **boid.js** – individual boid physics
-- **flock.js** – alignment/separation/cohesion coordinator
-- **simulation.js** – main update loop
-- **canvasRenderer.js** – drawing logic
-- **controls.js** – UI for toggles/sliders
-- **vector.js** – vector math utilities
+1. Open a PR via “Compare & pull request”
+2. Link the issue using `Fixes #<issue-number>`
+3. Describe your changes clearly
+4. Add screenshots/behavior GIFs when relevant
+5. Fill out all checklist items
 
 ## PR Acceptance Criteria
 
@@ -161,9 +125,9 @@ Important modules:
 
 ### Bonuses
 
-- First 10 PRs: +10 points
-- First PR of the week: +10 points
-- Most impactful PR: +50 points
+1. First 10 PRs: +10 points
+2. First PR of the week: +10 points
+3. Most impactful PR: +50 points
 
 ## Reporting Bugs
 
@@ -215,11 +179,11 @@ separation(neighbors) { ... }
 
 ## Important Rules
 
-- Work on **one issue at a time**
-- Finish assigned issues in **48 hours** (extensions possible)
-- Respect the code of conduct
-- PRs must link to an issue
-- Avoid plagiarism or low-effort AI-generated content
+1. Work on **one issue at a time**
+2. Finish assigned issues in **48 hours** (extensions possible)
+3. Respect the code of conduct
+4. PRs must link to an issue
+5. Avoid plagiarism or low-effort AI-generated content
 
 <p>
 <center>
