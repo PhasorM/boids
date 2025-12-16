@@ -17,7 +17,7 @@ const controls = new Controls();
 
 function loop() {
   const speed = controls.getSpeed();
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < Math.ceil(speed); i++) {
     sim.step();
   }
   renderer.render(controls);
