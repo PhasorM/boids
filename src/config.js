@@ -1,5 +1,6 @@
 const CONFIG = {
-  boidCount: 150,
+  boidCount: 240,
+  flockCount: 5,
   maxSpeed: 3.5,
   maxForce: 0.1,
   visualRange: 60,
