@@ -10,7 +10,7 @@ for (let i = 0; i < CONFIG.boidCount; i++) {
   );
 }
 
-const flock = new Flock(boids);
+const flock = new Flock(boids, canvas.width, canvas.height);
 const sim = new Simulation(flock, canvas.width, canvas.height);
 const renderer = new CanvasRenderer(canvas, flock);
 const controls = new Controls();

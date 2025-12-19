@@ -1,6 +1,21 @@
 class Flock {
-  constructor(boids) {
+  constructor(boids, width, height) {
     this.boids = boids;
+    this.width = width;
+    this.height = height;
+  }
+
+
+
+  reset() {
+    this.boids.length = 0;
+
+    for (let i = 0; i < CONFIG.boidCount; i++) {
+      this.boids.push(new Boid(
+        Math.random() * this.width,
+        Math.random() * this.height
+      ));
+    }
   }
 
   step() {
@@ -9,13 +24,15 @@ class Flock {
 
       const sep = b.separation(neighbors).mult(CONFIG.separationWeight);
       const ali = b.alignment(neighbors).mult(CONFIG.alignmentWeight);
-      const coh = b.cohesion(neighbors).mult(CONFIG.cohesionWeight);
+      const coh = b.cohesion(neighbors).mult(CONFIG.cohesionWeight)
       const wan = b.wander(CONFIG.wanderAngle).mult(CONFIG.wanderWeight);
+      const mas = b.cohesion(neighbors).mult(b.mass/1000).mult(CONFIG.massBasedClusteringFactor);
 
       b.applyForce(sep);
       b.applyForce(ali);
       b.applyForce(coh);
       b.applyForce(wan);
+      b.applyForce(mas);
     }
-  }
+  }  
 }

@@ -76,6 +76,9 @@ class Simulation {
       this.wrap(boid);
     }
   }
+  reset() {
+    this.flock.reset();
+  }
   step() {
     this.flock.step();
 
