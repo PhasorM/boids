@@ -3,12 +3,11 @@ const CONFIG = {
   maxSpeed: 3.5,
   maxForce: 0.1,
   visualRange: 60,
-  separationDistance:30,
+  separationDistance: 30,
 
-  baseMass:50,
+  baseMass: 50,
   massVariation: 100,
   massBasedClusteringFactor: 2.5,
-
 
   cohesionWeight: 0.1,
   alignmentWeight: 1.0,
