@@ -30,9 +30,12 @@ function loop() {
     for (let i = 0; i < Math.ceil(speed); i++) {
       sim.step();
     }
-    renderer.render(controls);
-    controls.updateFrame();
   }
+  //refactoring to fix pause trail issue
+
+  renderer.render(controls);
+  controls.updateFrame();
+
   requestAnimationFrame(loop);
 }
 
