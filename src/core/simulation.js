@@ -77,7 +77,7 @@ class Simulation {
     }
   }
   reset() {
-    this.flock.reset();
+    this.flock.reset(this.width, this.height);
   }
   step() {
     this.flock.step();

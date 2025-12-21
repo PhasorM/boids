@@ -4,9 +4,9 @@ class Controls {
     this.vectorsEnabled = false;
     this.simulationSpeed = 1;
     this.flockCount = CONFIG.flockCount;
+    this.tempFlockCount = CONFIG.flockCount;
     this.maxSpeed = CONFIG.maxSpeed;
     this.wanderAngleDeg = (CONFIG.wanderAngle * 180) / Math.PI;
-    
 
     this.fps = 0;
     this.frameCount = 0;
@@ -29,41 +29,35 @@ class Controls {
       .name("Show Trails")
       .onChange((enabled) => {
         if (enabled) {
-          flock.boids.forEach(b => b.trail = []); //To fix "ghost" trails when re-enabling
+          flock.boids.forEach((b) => (b.trail = [])); //To fix "ghost" trails when re-enabling
         }
-      });
-    
-
-    
-
-    this.gui
-      .add(this, "flockCount", 1, 6, 1)
-      .name("No of Flocks")
-      .onChange(() => {
-        let newgrpboids = [];
-        for (let g = 0; g < this.flockCount; g++) {
-          newgrpboids[g] = [];
-        }
-
-        for (let i = 0; i < allBoids.length; i++) {
-          let b = allBoids[i];
-          b.group = i % this.flockCount;
-          b.color = CONFIG.colors[i % this.flockCount];
-          newgrpboids[i % this.flockCount].push(b);
-        }
-        flock.grpboids = newgrpboids;
       });
 
     this.gui.add(this, "simulationSpeed", 1, 10, 1).name("Time Multiplier");
 
     this.gui.add(this, "fps").name("FPS").listen();
-    this.gui.add({ reset: () => sim.reset() }, "reset").name("Reset");
-
+    this.gui
+      .add(
+        {
+          reset: () => {
+            sim.reset();
+            flock.applyFlockChange(this.tempFlockCount);
+          },
+        },
+        "reset"
+      )
+      .name("Reset");
 
     //Properties
     const configFolder = this.gui.addFolder("Simulation Properties");
 
     configFolder.add(CONFIG, "boidCount", 10, 500, 1).name("*Boid Count");
+    configFolder
+      .add(this, "flockCount", 1, 6, 1)
+      .name("*No of Flocks")
+      .onChange((v) => {
+        this.tempFlockCount = v; //queue no. of flock changes
+      });
     configFolder
       .add(this, "maxSpeed", 1, 10, 0.05)
       .name("Max Speed")
@@ -78,14 +72,15 @@ class Controls {
       });
 
     configFolder.add(CONFIG, "visualRange", 0, 200, 1).name("Visual Range");
-    configFolder.add(CONFIG, "separationDistance", 1, 100, 5).name("Separation");
+    configFolder
+      .add(CONFIG, "separationDistance", 1, 100, 5)
+      .name("Separation");
     //EDGE BEHAVIOURS
     configFolder
       .add(CONFIG, "edgeBehavior", CONFIG.EDGE_BEHAVIORS)
       .name("Edge Behavior");
 
     configFolder.open();
-    
 
     //Weights
     const Weights = this.gui.addFolder("Weights");
@@ -94,11 +89,10 @@ class Controls {
     Weights.add(CONFIG, "alignmentWeight", 0, 10, 0.2).name("Alignment");
     Weights.add(CONFIG, "wanderWeight", 0, 10, 0.2).name("Wander");
     Weights.add(CONFIG, "separationWeight", 0, 10, 0.2).name("Separation");
-    Weights.add(CONFIG, "massBasedClusteringFactor", 0, 10, 0.2).name("Mass Clustering");
+    Weights.add(CONFIG, "massBasedClusteringFactor", 0, 10, 0.2).name(
+      "Mass Clustering"
+    );
     Weights.open();
-    
-    
-    
   }
 
   addListeners() {

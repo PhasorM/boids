@@ -1,19 +1,36 @@
 class Flock {
-   constructor(boids,grpboids, width, height) {
+  constructor(boids, grpboids, width, height) {
     this.boids = boids;
     this.width = width;
     this.height = height;
     this.grpboids = grpboids;
+    this.flockCount = CONFIG.flockCount;
   }
 
   reset() {
     this.boids.length = 0;
+    this.grpboids = [];
 
     for (let i = 0; i < CONFIG.boidCount; i++) {
       this.boids.push(
         new Boid(Math.random() * this.width, Math.random() * this.height)
       );
     }
+  }
+
+  applyFlockChange(v) {
+    let newgrpboids = [];
+    for (let g = 0; g < v; g++) {
+      newgrpboids[g] = [];
+    }
+
+    for (let i = 0; i < allBoids.length; i++) {
+      let b = allBoids[i];
+      b.group = i % v;
+      b.color = CONFIG.colors[i % v];
+      newgrpboids[i % v].push(b);
+    }
+    flock.grpboids = newgrpboids;
   }
 
   step() {
